@@ -1,0 +1,15 @@
+extends ../../layouts/master
+block content
+  
+  #controls
+    form(method='post', action='/animals/#{animal._id}/delete')
+      button.btn.btn-danger.btn-sm(type='submit'): i.fa.fa-trash-o
+      a.btn.btn-default.btn-sm(href='/animals/#{animal._id}/edit'): i.fa.fa-pencil
+    
+  .outer.col-md-3
+    .animal.col-md-12
+      .photo.col-md-12(style='background-image: url(#{animal.photo});')
+      .info.col-md-12
+        h4= animal.name + ', ' + animal.age
+        - var gender = _.capitalize(animal.gender);
+        h5= gender + ' - ' + animal.species + '/' + animal.breed

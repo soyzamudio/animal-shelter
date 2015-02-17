@@ -1,0 +1,13 @@
+extends ../../layouts/master
+block content
+  a(href='/animals/new').btn.btn-default: i.fa.fa-plus-square-o &nbsp; Create New
+  
+  .row 
+    each animal in animals
+      .outer.col-md-3
+        .animal.col-md-12: a(href='/animals/#{animal._id}')
+          .photo.col-md-12(style='background-image: url(#{animal.photo});')
+          .info.col-md-12
+            h4= animal.name + ', ' + animal.age
+            - var gender = _.capitalize(animal.gender);
+            h5= gender + ' - ' + animal.species + '/' + animal.breed
