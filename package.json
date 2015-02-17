@@ -1,7 +1,7 @@
 {
   "name": "hapi-prototype",
   "description": "Hapi Prototype Application",
-  "homepage": "https://github.com/coding-house-jan2015/hapi-prototype",
+  "homepage": "https://github.com/soyzamudio/animal-shelter",
   "keywords": [
     "gulp",
     "jshint",
@@ -12,14 +12,14 @@
     "mongo",
     "mongoose"
   ],
-  "author": "Chyld Medford <chyld.medford@gmail.com>",
+  "author": "Jose Zamudio <jose@josezamudio.me>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/coding-house-jan2015/hapi-prototype.git"
+    "url": "git://github.com/soyzamudio/animal-shelter.git"
   },
   "version": "1.0.0",
   "scripts": {
-    "start": "MONGO_URL=mongodb://localhost/hapi-prototype PORT=3333 nodemon server/index.js",
+    "start": "MONGO_URL=mongodb://localhost/animal-shelter PORT=3333 nodemon server/index.js",
     "clean": "rm -rf node_modules && rm -rf public && npm install && bower install && gulp build"
   },
   "license": "MIT",
