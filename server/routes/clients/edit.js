@@ -6,8 +6,8 @@ var _ = require('lodash');
 
 module.exports = {
   handler: function(request, reply) {
-    Client.find(function(err, clients) {
-      reply.view('templates/clients/index', {path: '/clients', active: active, clients: clients, _:_});
+    Client.findOne({_id: request.params.clientId}, function(err, client) {
+      reply.view('templates/clients/edit', {path: '/clients', active: active, client: client, _:_});
     });
   }
 };

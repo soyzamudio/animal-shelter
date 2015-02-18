@@ -1,0 +1,33 @@
+extends ../../layouts/master
+block content
+  h3 New Clients
+  .row 
+    .col-md-12
+      form(method='post', action='/clients')
+        .form-group
+          label(for='name') Name
+          input#name.form-control(type='text', name='name', placeholder='Enter a full name', autofocus=true)
+          
+        .form-group
+          label(for='location') Location
+          input#location.form-control(type='text', name='location', placeholder='Enter location')
+          
+        .form-group
+          label(for='age') Age
+          input#age.form-control(type='number', name='age', placeholder='Ente client age')
+
+        .form-group
+          label(for='photo') Photo
+          input#photo.form-control(type='url', name='photo', placeholder='http://')
+          
+        .form-group
+          .checkbox-gender
+            label(for='gender') Gender: &nbsp;
+            label.radio-inline
+              input#male(type='radio', name='gender', value='male')
+              span Male
+            label.radio-inline
+              input#female(type='radio', name='gender', value='female')
+              span Female
+          
+        button.btn.btn-default(type='submit') Add Client

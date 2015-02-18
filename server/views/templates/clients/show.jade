@@ -1,0 +1,17 @@
+extends ../../layouts/master
+block content
+  
+  #controls
+    form(method='post', action='/clients/#{client._id}/delete')
+      button.btn.btn-danger.btn-sm(type='submit'): i.fa.fa-trash-o
+      a.btn.btn-default.btn-sm(href='/clients/#{client._id}/edit'): i.fa.fa-pencil
+   
+  .outer.col-md-3
+    .client.col-md-12: a(href='/clients/#{client._id}')
+      .photo.col-md-12(style='background-image: url(#{client.photo});')
+      .info.col-md-12
+        h4= client.name + ', ' + client.age
+        h5= client.location
+        - var gender = _.capitalize(client.gender);
+        h5= gender
+      

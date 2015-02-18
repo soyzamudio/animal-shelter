@@ -1,7 +1,7 @@
 extends ../../layouts/master
 block content
   h3= 'Edit ' + animal.name
-  .row 
+  .row(style='margin-top: 30px;')
     .col-md-12
       form(method='post', action='/animals')
         .form-group

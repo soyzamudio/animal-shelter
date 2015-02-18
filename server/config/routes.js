@@ -14,4 +14,9 @@ module.exports = [
   {method: 'get', path: '/animals/{animalId}/edit', config: require('../routes/animals/edit')},
 
   {method: 'get', path: '/clients', config: require('../routes/clients/index')},
+  {method: 'get', path: '/clients/new', config: require('../routes/clients/new')},
+  {method: 'post', path: '/clients', config: require('../routes/clients/create')},
+  {method: 'get', path: '/clients/{clientId}', config: require('../routes/clients/show')},
+  {method: 'post', path: '/clients/{clientId}/delete', config: require('../routes/clients/destroy')},
+  {method: 'get', path: '/clients/{clientId}/edit', config: require('../routes/clients/edit')}
 ];
