@@ -1,48 +1,50 @@
 extends ../../layouts/master
 block content
-  h3 New Animal
-  .row 
-    .col-md-12
-      form(method='post', action='/animals')
-        .form-group
-          label(for='name') Name
-          input#name.form-control(type='text', name='name', placeholder='Enter a name', autofocus=true)
-          
-        .from-group
-          label(for='species') Species
-          select#species.form-control(name='species')
-            option(selected="true", style='display:none;') Choose a species
-            option Dog
-            option Cat
-            option Dragon
-            option Kangaroo
-            option Koala
-            option Snake
-            option Rabbit
+  
+  .container(style='padding-top: 75px;')
+    .row 
+      h3 New Animal
+      .col-md-12(style='margin-top: 30px;')
+        form(method='post', action='/animals')
+          .form-group
+            label(for='name') Name
+            input#name.form-control(type='text', name='name', placeholder='Enter a name', autofocus=true)
             
-        .form-group
-          label(for='breed') Breed
-          input#breed.form-control(type='text', name='breed', placeholder='Enter a breed')
-          
-        .form-group
-          label(for='age') Age
-          input#age.form-control(type='number', name='age', placeholder='Ente age')
-          
-        .form-group
-          .checkbox-gender
-            label(for='age') Gender: &nbsp;
-            label.radio-inline
-              input#male(type='radio', name='gender', value='male')
-              span Male
-            label.radio-inline
-              input#female(type='radio', name='gender', value='female')
-              span Female
+          .from-group
+            label(for='species') Species
+            select#species.form-control(name='species')
+              option(selected="true", style='display:none;') Choose a species
+              option Dog
+              option Cat
+              option Dragon
+              option Kangaroo
+              option Koala
+              option Snake
+              option Rabbit
+              
+          .form-group
+            label(for='breed') Breed
+            input#breed.form-control(type='text', name='breed', placeholder='Enter a breed')
+            
+          .form-group
+            label(for='age') Age
+            input#age.form-control(type='number', name='age', placeholder='Ente age')
+            
+          .form-group
+            .checkbox-gender
+              label(for='age') Gender: &nbsp;
+              label.radio-inline
+                input#male(type='radio', name='gender', value='male')
+                span Male
+              label.radio-inline
+                input#female(type='radio', name='gender', value='female')
+                span Female
 
-        .form-group
-          label(for='photo') Photo
-          input#photo.form-control(type='url', name='photo', placeholder='http://')
-          
-        .form-group
-          label(for='description') Description
-          textarea#description.form-control(type='text', name='description', placeholder='Enter a description', rows='5')
-        button.btn.btn-default(type='submit') Add Animal
+          .form-group
+            label(for='photo') Photo
+            input#photo.form-control(type='url', name='photo', placeholder='http://')
+            
+          .form-group
+            label(for='description') Description
+            textarea#description.form-control(type='text', name='description', placeholder='Enter a description', rows='5')
+          button.btn.btn-default(type='submit') Add Animal

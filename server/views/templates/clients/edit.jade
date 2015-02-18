@@ -1,33 +1,34 @@
 extends ../../layouts/master
 block content
-  h3= 'Edit ' + client.name
-  .row(style='margin-top: 30px;')
-    .col-md-12
-      form(method='post', action='/clients')
-        .form-group
-          label(for='name') Name
-          input#name.form-control(type='text', name='name', placeholder='Enter a full name', autofocus=true, value=client.name)
-          
-        .form-group
-          label(for='location') Location
-          input#location.form-control(type='text', name='location', placeholder='Enter location', value=client.location)
-          
-        .form-group
-          label(for='age') Age
-          input#age.form-control(type='number', name='age', placeholder='Ente client age', value=client.age)
+  .container(style='margin-top: 75px;')
+    .row
+      h3= 'Edit ' + client.name
+      .col-md-12(style='margin-top: 30px;')
+        form(method='post', action='/clients/#{client._id}/edit')
+          .form-group
+            label(for='name') Name
+            input#name.form-control(type='text', name='name', placeholder='Enter a full name', autofocus=true, value=client.name)
+            
+          .form-group
+            label(for='location') Location
+            input#location.form-control(type='text', name='location', placeholder='Enter location', value=client.location)
+            
+          .form-group
+            label(for='age') Age
+            input#age.form-control(type='number', name='age', placeholder='Ente client age', value=client.age)
 
-        .form-group
-          label(for='photo') Photo
-          input#photo.form-control(type='url', name='photo', placeholder='http://', value=client.photo)
-          
-        .form-group
-          .checkbox-gender
-            label(for='gender') Gender: &nbsp;
-            label.radio-inline
-              input#male(type='radio', name='gender', value='male')
-              span Male
-            label.radio-inline
-              input#female(type='radio', name='gender', value='female')
-              span Female
-          
-        button.btn.btn-default(type='submit') Edit Client
+          .form-group
+            label(for='photo') Photo
+            input#photo.form-control(type='url', name='photo', placeholder='http://', value=client.photo)
+            
+          .form-group
+            .checkbox-gender
+              label(for='gender') Gender: &nbsp;
+              label.radio-inline
+                input#male(type='radio', name='gender', value='male')
+                span Male
+              label.radio-inline
+                input#female(type='radio', name='gender', value='female')
+                span Female
+            
+          button.btn.btn-default(type='submit') Edit Client

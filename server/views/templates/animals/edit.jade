@@ -1,47 +1,50 @@
 extends ../../layouts/master
 block content
-  h3= 'Edit ' + animal.name
-  .row(style='margin-top: 30px;')
-    .col-md-12
-      form(method='post', action='/animals')
-        .form-group
-          label(for='name') Name
-          input#name.form-control(type='text', name='name', placeholder='Enter a name', autofocus=true, value=animal.name)
-          
-        .from-group
-          label(for='species') Species
-          select#species.form-control(name='species', value=animal.species)
-            option(value='Dog') Dog
-            option(value='Cat') Cat
-            option(value='Dragon') Dragon
-            option(value='Kangaroo') Kangaroo
-            option(value='Koala') Koala
-            option(value='Snake') Snake
-            option(value='Rabbit') Rabbit
-            
-        .form-group
-          label(for='breed') Breed
-          input#breed.form-control(type='text', name='breed', placeholder='Enter a breed', value=animal.breed)
-          
-        .form-group
-          label(for='age') Age
-          input#age.form-control(type='number', name='age', placeholder='Ente age', value=animal.age)
-          
-        .form-group
-          .checkbox-gender
-            label(for='age') Gender: &nbsp;
-            label.radio-inline
-              input#male(type='radio', name='gender', value='male')
-              span Male
-            label.radio-inline
-              input#female(type='radio', name='gender', value='female')
-              span Female
 
-        .form-group
-          label(for='photo') Photo
-          input#photo.form-control(type='url', name='photo', placeholder='http://', value=animal.photo)
-          
-        .form-group
-          label(for='description') Description
-          textarea#description.form-control(type='text', name='description', placeholder='Enter a description', rows='5')= animal.description
-        button.btn.btn-default(type='submit') Edit Animal
+  
+  .container(style='padding-top: 75px;')
+    .row
+      h3= 'Edit ' + animal.name
+      .col-md-12(style='margin-top: 30px;')
+        form(method='post', action='/animals/#{animal._id}/edit')
+          .form-group
+            label(for='name') Name
+            input#name.form-control(type='text', name='name', placeholder='Enter a name', autofocus=true, value=animal.name)
+            
+          .from-group
+            label(for='species') Species
+            select#species.form-control(name='species', value=animal.species)
+              option(value='Dog') Dog
+              option(value='Cat') Cat
+              option(value='Dragon') Dragon
+              option(value='Kangaroo') Kangaroo
+              option(value='Koala') Koala
+              option(value='Snake') Snake
+              option(value='Rabbit') Rabbit
+              
+          .form-group
+            label(for='breed') Breed
+            input#breed.form-control(type='text', name='breed', placeholder='Enter a breed', value=animal.breed)
+            
+          .form-group
+            label(for='age') Age
+            input#age.form-control(type='number', name='age', placeholder='Ente age', value=animal.age)
+            
+          .form-group
+            .checkbox-gender
+              label(for='age') Gender: &nbsp;
+              label.radio-inline
+                input#male(type='radio', name='gender', value='male')
+                span Male
+              label.radio-inline
+                input#female(type='radio', name='gender', value='female')
+                span Female
+
+          .form-group
+            label(for='photo') Photo
+            input#photo.form-control(type='url', name='photo', placeholder='http://', value=animal.photo)
+            
+          .form-group
+            label(for='description') Description
+            textarea#description.form-control(type='text', name='description', placeholder='Enter a description', rows='5')= animal.description
+          button.btn.btn-default(type='submit') Edit Animal

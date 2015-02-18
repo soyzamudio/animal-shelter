@@ -1,15 +1,19 @@
 extends ../../layouts/master
 block content
-  a(href='/clients/new').btn.btn-default: i.fa.fa-plus-square-o &nbsp; New Client
-  
-  .row 
-    each client in clients
-      .outer.col-md-3
-        .client.col-md-12: a(href='/clients/#{client._id}')
-          .photo.col-md-12(style='background-image: url(#{client.photo});')
-          .info.col-md-12
-            h4= client.name + ', ' + client.age
-            h5= client.location
-            - var gender = _.capitalize(client.gender);
-            h5= gender
+  .container(style='padding-top: 75px;')
+    .row
+      .col-md-12
+        a(href='/clients/new').btn.btn-primary: i.fa.fa-plus-square-o &nbsp; New Client
+        
+  .container
+    .row 
+      each client in clients
+        .outer.col-md-3
+          .client.col-md-12: a(href='/clients/#{client._id}')
+            .photo.col-md-12(style='background-image: url(#{client.photo});')
+            .info.col-md-12
+              h4= client.name + ', ' + client.age
+              h5= client.location
+              - var gender = _.capitalize(client.gender);
+              h5= gender
       

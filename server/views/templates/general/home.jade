@@ -1,3 +1,32 @@
 extends ../../layouts/master
 block content
-  h3 home page
+  .container-fluid
+    .row
+      #bs-carousel.carousel.fade-carousel.slide(data-ride='carousel', data-interval='4000')
+        //- .overlay
+        ol.carousel-indicators
+          li.active(data-target='#bs-carousel', data-slide-to='0')
+          li(data-target='#bs-carousel', data-slide-to='1')
+          li(data-target='#bs-carousel', data-slide-to='2')
+        .carousel-inner
+          .item.slides.active
+            .slide-1
+            .hero
+              hgroup
+                h1 We save animal lives
+                h3 Get started with adoption
+              a.btn.btn-hero.btn-lg(href='/animals') See all Animals
+          .item.slides
+            .slide-2
+            .hero
+              hgroup
+                h1 We change human lives
+                h3 We get you a new best friend
+              a.btn.btn-hero.btn-lg(href='/clients') See all Clients
+          .item.slides
+            .slide-3
+            .hero
+              hgroup
+                h1 We are amazing      
+                h3 Get in touch with us
+              a.btn.btn-hero.btn-lg(href='/contact') Contact Us
