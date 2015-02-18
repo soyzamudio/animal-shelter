@@ -6,7 +6,7 @@ block content
     .row
       h3= 'Edit ' + animal.name
       .col-md-12(style='margin-top: 30px;')
-        form(method='post', action='/animals/#{animal._id}/edit')
+        form(method='post', action='/animals/#{animal._id}')
           .form-group
             label(for='name') Name
             input#name.form-control(type='text', name='name', placeholder='Enter a name', autofocus=true, value=animal.name)
@@ -14,13 +14,8 @@ block content
           .from-group
             label(for='species') Species
             select#species.form-control(name='species', value=animal.species)
-              option(value='Dog') Dog
-              option(value='Cat') Cat
-              option(value='Dragon') Dragon
-              option(value='Kangaroo') Kangaroo
-              option(value='Koala') Koala
-              option(value='Snake') Snake
-              option(value='Rabbit') Rabbit
+              each s in species
+                option(selected=animal.species === s)= s
               
           .form-group
             label(for='breed') Breed
@@ -34,10 +29,10 @@ block content
             .checkbox-gender
               label(for='age') Gender: &nbsp;
               label.radio-inline
-                input#male(type='radio', name='gender', value='male')
+                input#male(type='radio', name='gender', value='male', checked=animal.gender === 'male')
                 span Male
               label.radio-inline
-                input#female(type='radio', name='gender', value='female')
+                input#female(type='radio', name='gender', value='female', checked=animal.gender === 'female')
                 span Female
 
           .form-group

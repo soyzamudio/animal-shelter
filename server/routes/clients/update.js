@@ -8,7 +8,7 @@ module.exports = {
       client.update(request.payload, function(err) {
         if (err) { console.error(err); }
       });
-      reply.redirect('/clients');
+      reply.redirect('/clients/' + request.params.clientId);
     });
   }
 };

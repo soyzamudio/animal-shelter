@@ -8,7 +8,7 @@ module.exports = {
       animal.update(request.payload, function(err) {
         if (err) { console.error(err); }
       });
-      reply.redirect('/animals');
+      reply.redirect('/animals/' + request.params.animalId);
     });
   }
 };

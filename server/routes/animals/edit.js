@@ -7,7 +7,8 @@ var _ = require('lodash');
 module.exports = {
   handler: function(request, reply) {
     Animal.findOne({_id: request.params.animalId}, function(err, animal) {
-      reply.view('templates/animals/edit', {path: '/animals', active: active, animal: animal, _:_});
+      var species = ['Dog', 'Cat', 'Dragon', 'Kangaroo', 'Koala', 'Snake', 'Rabbit'];
+      reply.view('templates/animals/edit', {path: '/animals', active: active, animal: animal, species: species, _:_});
     });
   }
 };
