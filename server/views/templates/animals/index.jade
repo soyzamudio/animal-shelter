@@ -2,8 +2,34 @@ extends ../../layouts/master
 block content 
   .container(style='padding-top: 75px;')
     .row
-      .col-md-12
-        a(href='/animals/new').btn.btn-primary: i.fa.fa-plus-square-o &nbsp; New Animal
+      .col-md-1
+        a.btn.btn-primary.btn-sm(href='/animals/new'): i.fa.fa-plus-square-o &nbsp; New Animal
+      .col-md-11.text-right
+        #filter
+          form.form-inline(method='get', action='/animals')
+            label Min Age
+            input.form-control(type='number', name='min', style='width: 85px;')
+            label Max Age
+            input.form-control(type='number', name='max', style='width: 85px;')
+            label Gender
+            select.form-control(name='gender', style='width: 85px;')
+              option 
+              option male
+              option female
+            label Species
+            select.form-control(name='species', style='width: 100px;')
+              option 
+              option Dog
+              option Cat
+              option Dragon
+              option Kangaroo
+              option Koala
+              option Snake
+              option Rabbit
+            label Breed
+            input.form-control(type='text', name='breed', style='width: 85px;')
+            button.btn.btn-info.btn-sm(type='submit'): i.fa.fa-filter
+            a.btn.btn-default.btn-sm(href='/animals'): i.fa.fa-refresh
       
   .container
     .row 

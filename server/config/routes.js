@@ -13,6 +13,7 @@ module.exports = [
   {method: 'post', path: '/animals/{animalId}/delete', config: require('../routes/animals/destroy')},
   {method: 'get', path: '/animals/{animalId}/edit', config: require('../routes/animals/edit')},
   {method: 'post', path: '/animals/{animalId}', config: require('../routes/animals/update')},
+  {method: 'post', path: '/animals/{animalId}/adopt', config: require('../routes/animals/adopt')},
 
   {method: 'get', path: '/clients', config: require('../routes/clients/index')},
   {method: 'get', path: '/clients/new', config: require('../routes/clients/new')},
