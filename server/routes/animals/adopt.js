@@ -1,9 +1,7 @@
 'use strict';
 
-var active = require('../../views/helpers/active');
 var Animal = require('../../models/animal');
 var Client = require('../../models/client');
-var _ = require('lodash');
 
 module.exports = {
   handler: function(request, reply) {
@@ -14,9 +12,9 @@ module.exports = {
         client.save(function() {
           animal.save(function() {
             reply.redirect('/clients/' + client._id);
-          })
-        })
-      })
-    })
+          });
+        });
+      });
+    });
   }
 };

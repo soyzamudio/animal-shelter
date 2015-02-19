@@ -1,10 +1,15 @@
 extends ../../layouts/master
 block content
-  
   .container(style='padding-top: 75px;')
     .row 
-      h3 New Animal
-      .col-md-12(style='margin-top: 30px;')
+      .col-md-12
+        a.btn.btn-default.btn-sm(href='/animals'): i.fa.fa-chevron-left
+  
+  .container
+    .row 
+      .col-md-12
+        h3 New Animal
+      .col-md-12
         form(method='post', action='/animals')
           .form-group
             label(for='name') Name

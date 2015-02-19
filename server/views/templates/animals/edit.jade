@@ -1,11 +1,15 @@
 extends ../../layouts/master
 block content
-
-  
   .container(style='padding-top: 75px;')
+    .row 
+      .col-md-12
+        a.btn.btn-default.btn-sm(href='/animals/#{animal._id}'): i.fa.fa-chevron-left
+  
+  .container
     .row
-      h3= 'Edit ' + animal.name
-      .col-md-12(style='margin-top: 30px;')
+      .col-md-12
+        h3= 'Edit ' + animal.name
+      .col-md-12
         form(method='post', action='/animals/#{animal._id}')
           .form-group
             label(for='name') Name
@@ -42,4 +46,4 @@ block content
           .form-group
             label(for='description') Description
             textarea#description.form-control(type='text', name='description', placeholder='Enter a description', rows='5')= animal.description
-          button.btn.btn-default(type='submit') Edit Animal
+          button.btn.btn-default(type='submit') Edit animal

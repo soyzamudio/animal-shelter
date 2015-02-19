@@ -1,9 +1,15 @@
 extends ../../layouts/master
 block content
-  .container(style='margin-top: 75px;')
+  .container(style='padding-top: 75px;')
+    .row 
+      .col-md-12
+        a.btn.btn-default.btn-sm(href='/clients/#{client._id}'): i.fa.fa-chevron-left
+
+  .container
     .row
-      h3= 'Edit ' + client.name
-      .col-md-12(style='margin-top: 30px;')
+      .col-md-12
+        h3= 'Edit ' + client.name
+      .col-md-12
         form(method='post', action='/clients/#{client._id}')
           .form-group
             label(for='name') Name

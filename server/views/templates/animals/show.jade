@@ -1,25 +1,32 @@
 extends ../../layouts/master
 block content
-  .container(style='margin-top: 75px;')
-    .row
-      #controls
-        form(method='post', action='/animals/#{animal._id}/delete')
-          button.btn.btn-danger.btn-sm(type='submit'): i.fa.fa-trash-o
-          a.btn.btn-default.btn-sm(href='/animals/#{animal._id}/edit'): i.fa.fa-pencil
+  .container(style='padding-top: 75px;')
+    .row 
+      .col-md-11
+        a.btn.btn-default.btn-sm(href='/animals'): i.fa.fa-chevron-left
+      .col-md-1
+          form(method='post', action='/animals/#{animal._id}/delete')
+            a.btn.btn-default.btn-sm(href='/animals/#{animal._id}/edit'): i.fa.fa-pencil
+            button.btn.btn-danger.btn-sm(type='submit'): i.fa.fa-trash-o
           
   .container
     .row
-      form(method='post', action='/animals/#{animal._id}/adopt')
-        select(name='clientId')
-          each client in clients
-            option(value=client._id)= client.name
-        button.btn.btn-default.btn-sm(type='submit') Adopt
-  .container
-    .row
-      .outer.col-md-3
-        .animal.col-md-12
-          .photo.col-md-12(style='background-image: url(#{animal.photo});')
-          .info.col-md-12
-            h4= animal.name + ', ' + animal.age
-            - var gender = _.capitalize(animal.gender);
-            h5= gender + ' - ' + animal.species + '/' + animal.breed
+      .col-md-12
+        .page-header
+          h2= animal.name
+          if !animal.isAdopted
+            form.form-inline(method='post', action='/animals/#{animal._id}/adopt')
+              select.form-control(name='clientId', width='120px')
+                each client in clients
+                  option(value=client._id)= client.name
+              button.btn.btn-info.btn-sm(type='submit') Adopt
+      .col-md-12
+        .media.show-client
+          .media-left
+            img.media-object(data-src='holder.js/64x64', alt=animal.name src=animal.photo, data-holder-rendered='true', style='height: 190px; width: auto;')
+          .media-body
+            h5.media-heading= 'Age: ' + animal.age
+            h5.media-heading= 'Species: ' + animal.species
+            h5.media-heading= 'Breed: ' + animal.breed
+            h5.media-heading.text-capitalize= 'Gender: ' + animal.gender
+            p= animal.description
